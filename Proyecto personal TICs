@@ -1,0 +1,25 @@
+#incluir <Servo.h>
+
+Servo sermecatronicos;
+
+const int pinJoystickX = A0; // Pin analógico para el eje X del joystick
+const int pinJoystickY = A1; // Pin analógico para el eje Y del joystick
+
+Configuración del vacío () {
+   servomecatronicos.attach(3); // Conecta el servo al pin 3 
+}
+
+bucle vacío () {
+   // Lee los valores del joystick 
+   int valorX = analogRead(pinJoystickX); // Lee el valor del eje X 
+   int valorY = analogRead(pinJoystickY); // Lee el valor del eje Y 
+
+   // Mapea los valores del joystick al rango de 0 a 180 grados 
+ int angulo = mapa (valorX, 0, 1023, 0, 180); 
+
+   // Mueve el servo al ángulo calculado 
+ servomecatronicos.write (angulo); 
+
+   // Pequeña pausa para estabilizar el servo 
+ retraso (15); 
+}
