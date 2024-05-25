@@ -29,18 +29,21 @@ Configuración del vacío () {
  pinMode (LED8, OUTPUT); 
 }
 
-bucle de vacío () {
-   // Lectura del estado del sensor de sonido 
- ESTADO = digitalRead (SensorSonido); 
+void loop(){
+  // Lectura del estado del sensor de sonido
+  ESTADO = digitalRead(SensorSonido);
 
-   // Si el sensor detecta sonido (salida alta) 
- si (ESTADO == 1) { 
-     // Enciende los LEDs en secuencia 
- para (int i = LED1; i <= LED8; i++) { 
- digitalWrite (i, HIGH); 
- retraso (10); 
- } 
-     // Apaga los LEDs en secuencia inversa 
- para (int i = LED8; i >= LED1; i-) { 
- digitalWrite (i, LOW); 
- Retraso. (10)
+  // Si el sensor detecta sonido (salida alta)
+  if (ESTADO == 1){
+    // Enciende los LEDs en secuencia
+    for(int i = LED1; i <= LED8; i++){
+      digitalWrite(i, HIGH);
+      delay(10);
+    }
+    // Apaga los LEDs en secuencia inversa
+    for(int i = LED8; i >= LED1; i--){
+      digitalWrite(i, LOW);
+      delay(10);
+    }
+  }
+}
