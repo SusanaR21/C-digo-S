@@ -1,38 +1,59 @@
+
+
+// Definición de pines para el sensor ultrasónico y LEDs
+const int trigPin = 9; // Pin de Trigger del sensor
+const int echoPin = 10; // Pin de Echo del sensor
+const int ledPin1 = 5; // LED para distancia > 20cm
+const int ledPin2 = 6; // LED para distancia entre 10cm y 20cm
+const int ledPin3 = 7; // LED para distancia < 10cm
+
+// Configuración inicial de los pines y la comunicación serial
+  void setup(){
+    pinMode(trigPin, OUTPUT); // Configura el pin del Trigger como salida
+    pinMode(echoPin, INPUT); // Configura el pin del Echo como entrada
+    pinMode(ledPin1, OUTPUT); // Configura el primer LED como salida
+    pinMode(ledPin2, OUTPUT); // Configura el segundo LED como salida
+    pinMode(ledPin3, OUTPUT); // Configura el tercer LED como salida
+    Serial.begin(9600); // Inicia la comunicación serial a 9600 baudios
+  }
+
 void loop() {
-long duration , distance ;
-//Inicia el pulso ultras nico
-digitalWrite( trigPin , LOW ) ;
-delayMicroseconds( 2 ) ;
-digitalWrite( trigPin , HIGH ) ;
-delayMicroseconds( 10 ) ;
-digitalWrite( trigPin , LOW) ;
-//Mide la duración del eco
-duration = pulseIn( echoPin , HIGH ) ;
-// Calcula la distancia
-distance = ( duration / 2 ) / 29.1 ;
-Serial.print( ” Distancia: ” ) ;
-Serial.print( distance ) ;
-Serial.println( ” cm” ) ;
-// Determina que LED encender basado en la distancia medida
-if( distance < 10 ) {
-// S i l a d i s t a n c i a e s menor a 10cm
-digitalWrite( ledPin3 , HIGH ) ;
-digitalWrite( ledPin2 , LOW) ;
-digitalWrite( ledPin1 , LOW) ;
-// Continuación: Encender LEDs según la distancia
-} else if ( distance < 20 ) {
-digitalWrite( ledPin2 , HIGH ) ;
-digitalWrite( ledPin3 , LOW) ;
-digitalWrite( ledPin1 , LOW) ;
-} else if ( distance < 30 ) {
-digitalWrite( ledPin1 , HIGH ) ;
-digitalWrite( ledPin2 , LOW) ;
-digitalWrite( ledPin3 , LOW) ;
-} else {
-// Si la distancia es mayor a 30cm , apaga todos los LEDs
-digitalWrite( ledPin1 , LOW) ;
-digitalWrite( ledPin2 , LOW) ;
-digitalWrite( ledPin3 , LOW) ;
-}
-delay( 500 ) ; // Espera medio segundo para la próxima medición
+long duration, distance;
+// Inicia el pulso ultrasónico
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+
+  // Mide la duración del eco
+duration = pulseIn(echoPin, HIGH) ;
+  // Calcula la distancia
+distance =(duration / 2) / 29.1;
+
+Serial.print(" Distancia: -");
+Serial.print(distance);
+Serial.println("-cm");
+  
+// Determina qué LED encender basado en la distancia medida
+  if (distance < 10) { // Si la distancia es menor a 10cm
+digitalWrite(ledPin3, HIGH);
+  digitalWrite(ledPin2, LOW);
+  digitalWrite(ledPin1, LOW);
+// Encender LEDs según distancia
+  } else if (distance < 20) { 
+    digitalWrite(ledPin2, HIGH);
+    digitalWrite(ledPin3, LOW);
+    digitalWrite(ledPin1, LOW);
+  } else if (distance < 30) {
+    digitalWrite(ledPin1, HIGH);
+    digitalWrite(ledPin2, LOW);
+    digitalWrite(ledPin3, LOW);
+  } else {
+// Si la distancia es mayor a 30cm, apaga todos los LEDs
+    digitalWrite(ledPin1, LOW);
+    digitalWrite(ledPin2, LOW);
+    digitalWrite(ledPin3, LOW);
+  }
+delay (500); // Espera medio segundo para la próxima medición
 }
