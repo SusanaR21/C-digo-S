@@ -1,31 +1,32 @@
-// Código C++
+// C++ code
 //
-Configuración del vacío ()
+void setup()
 {
- pinMode (13, OUTPUT); 
- pinMode (12, OUTPUT); 
- pinMode (11, OUTPUT); 
- pinMode (10, OUTPUT); 
- pinMode (9, OUTPUT); 
+//definimos los pines
+  pinMode(13, OUTPUT);
+  pinMode(12, OUTPUT);
+  pinMode(11, OUTPUT);
+  pinMode(10, OUTPUT);
+  pinMode(9, OUTPUT);
   
 }
-
-bucle vacío ()
+//creamos el bucle con el cual se definirá los tiempos en los que se encenderán los LEDs
+void loop()
 {
- digitalWrite (13, HIGH); 
- digitalWrite (9, ALTO); 
- retardo (3000); // Espere 1000 milisegundos (s) 
- digitalWrite (13, LOW); 
- retardo (500); // Espere 1000 milisegundos (s) 
- digitalWrite (12, ALTO); 
- retardo (1000); // Esperar 1000 milisegundos (s) 
- digitalWrite (12, LOW); 
- digitalWrite (9, BAJO); 
- retardo (1000); // Esperar 1000 milisegundos (s) 
- digitalWrite (11, ALTO); 
- digitalWrite (10, HIGH); 
- retardo (3000); // Espere 1000 milisegundos (s) 
- digitalWrite (11, LOW); 
- digitalWrite (10, LOW); 
- retardo (1000); // Esperar 1000 milisegundos (s) 
+  digitalWrite(13, HIGH);
+  digitalWrite(9, HIGH);
+  delay(3000); // Espera 1000 milisegundo(s)
+  digitalWrite(13, LOW);
+  delay(500); // Espera 1000 milisegundo(s)
+  digitalWrite(12, HIGH);
+  delay(1000); // Espera 1000 milisegundo(s)
+  digitalWrite(12, LOW);
+  digitalWrite(9, LOW);
+  delay(1000); // Espera 1000 milisegundo(s)
+  digitalWrite(11, HIGH);
+  digitalWrite(10, HIGH);
+  delay(3000); // Espera 1000 milisegundo(s)
+  digitalWrite(11, LOW);
+  digitalWrite(10, LOW);
+  delay(1000); // Espera 1000 milisegundo(s)
 }
