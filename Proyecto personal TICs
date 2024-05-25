@@ -1,15 +1,16 @@
+//Incluimos el paquete o librería Servo.h
 #incluir <Servo.h>
 
 Servo sermecatronicos;
-
+//Definimos los elementos del joystick y en dónde irán en el arduino
 const int pinJoystickX = A0; // Pin analógico para el eje X del joystick
 const int pinJoystickY = A1; // Pin analógico para el eje Y del joystick
 
-Configuración del vacío () {
+void setup () {
    servomecatronicos.attach(3); // Conecta el servo al pin 3 
 }
 
-bucle vacío () {
+void loop () {
    // Lee los valores del joystick 
    int valorX = analogRead(pinJoystickX); // Lee el valor del eje X 
    int valorY = analogRead(pinJoystickY); // Lee el valor del eje Y 
